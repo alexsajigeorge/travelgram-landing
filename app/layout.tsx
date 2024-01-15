@@ -16,13 +16,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         <body>
           <Navbar />
           <main className="relative overflow-hidden">{children}</main>
           <Footer />
         </body>
-
+      </ThemeProvider>
     </html>
   );
 }

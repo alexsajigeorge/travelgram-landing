@@ -6,9 +6,15 @@ import Link from "next/link";
 import Button from "./Button";
 import { useState } from "react";
 import MobileMenu from "./ui/mobile-menu";
+import { useRouter } from "next/navigation";
+import { ThemeToggle } from "./ui/theme-toggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const login = () => {
+    router.push("https://travelgramsocial.vercel.app/");
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,7 +23,12 @@ const Navbar = () => {
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href={"/"}>
-        <Image src={"/travelgram-logo-light.svg"} alt={"logo"} width={150} height={100} />
+        <Image
+          src={"/travelgram-logo-light.svg"}
+          alt={"logo"}
+          width={180}
+          height={100}
+        />
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
@@ -30,12 +41,14 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
+      
       <div className="lg:flexCenter hidden">
         <Button
           type="button"
           title="Login"
           icon="/user.svg"
           variant="btn_dark_green"
+          onClick={login}
         />
       </div>
       {isMenuOpen ? (
