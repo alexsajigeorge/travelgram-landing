@@ -1,22 +1,28 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
-  title: 'Travelgram - Landing',
-  description: 'Travelers companion',
-}
+  title: "Travelgram - Landing",
+  description: "Travelers companion",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+        <body>
+          <Navbar />
+          <main className="relative overflow-hidden">{children}</main>
+          <Footer />
+        </body>
+
     </html>
-  )
+  );
 }
