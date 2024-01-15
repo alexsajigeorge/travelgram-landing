@@ -1,8 +1,11 @@
+import React from "react";
+
 export type ButtonProps = {
   type: 'button' | 'submit';
   title: string;
   icon?: string;
   variant: string;
+  full?: boolean;
 }
 
 export interface CampProps {
@@ -10,4 +13,15 @@ export interface CampProps {
   title: string;
   subtitle: string;
   peopleJoined: string;
+}
+
+export type FeatureItemProps = {
+  title: string;
+  icon: string;
+  description: string;
+}
+
+export type FooterColumnProps = {
+  title: string;
+  children: React.ReactNode;
 }
