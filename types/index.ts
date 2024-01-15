@@ -6,6 +6,8 @@ export type ButtonProps = {
   icon?: string;
   variant: string;
   full?: boolean;
+  children?: React.ReactNode;
+  onClick?: () => void;
 }
 
 export interface CampProps {

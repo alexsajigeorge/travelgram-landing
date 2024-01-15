@@ -4,12 +4,20 @@ import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import { useState } from "react";
+import MobileMenu from "./ui/mobile-menu";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="flexBetween max-container padding-container relative z-30 py-5">
       <Link href={"/"}>
-        <Image src={"/hilink-logo.svg"} alt={"logo"} width={74} height={29} />
+        <Image src={"/travelgram-logo-light.svg"} alt={"logo"} width={150} height={100} />
       </Link>
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
@@ -30,13 +38,27 @@ const Navbar = () => {
           variant="btn_dark_green"
         />
       </div>
-      <Image
-        src={"menu.svg"}
-        alt="menu"
-        width={32}
-        height={32}
-        className="inline-block cursor-pointer lg:hidden"
-      />
+      {isMenuOpen ? (
+        <Image
+          onClick={toggleMenu}
+          src={"close-black.svg"}
+          alt="menu"
+          width={32}
+          height={32}
+          className="inline-block cursor-pointer lg:hidden"
+        />
+      ) : (
+        <Image
+          onClick={toggleMenu}
+          src={"menu.svg"}
+          alt="menu"
+          width={32}
+          height={32}
+          className="inline-block cursor-pointer lg:hidden"
+        />
+      )}
+
+      {isMenuOpen && <MobileMenu />}
     </nav>
   );
 };
