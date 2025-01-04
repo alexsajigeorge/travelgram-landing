@@ -30,6 +30,8 @@ const Navbar = () => {
           height={100}
         />
       </Link>
+
+      <div className="flex items-center gap-5">
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
           <Link
@@ -71,6 +73,8 @@ const Navbar = () => {
         />
       )}
 
+      </div>
+      
       {isMenuOpen && <MobileMenu />}
     </nav>
   );

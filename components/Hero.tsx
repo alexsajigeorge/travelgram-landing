@@ -7,16 +7,18 @@ const Hero = () => {
       <div className="hero-map" />
 
       <div className="relative z-20 flex flex-1 flex-col xl:w-1/2">
-        <Image
+        {/* <Image
           src="/camp.svg"
           alt="camp"
           width={50}
           height={50}
           className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
-        />
+        /> */}
         <h1 className="bold-52 lg:bold-88">Travelgram Explorer Hub</h1>
         <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
-        Embark on a journey to uncover the world’s hidden treasures, from secluded beaches and charming villages to awe-inspiring natural wonders and iconic landmarks. Explore must-visit destinations that offer rich cultural experiences, breathtaking landscapes, and unforgettable adventures.
+          Embark on a journey to uncover the world’s hidden treasures, from
+          secluded beaches and charming villages to awe-inspiring natural
+          wonders and iconic landmarks.
         </p>
 
         <div className="my-11 flex flex-wrap gap-5">
