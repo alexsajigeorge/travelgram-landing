@@ -46,6 +46,38 @@ export const NAV_LINKS = [
         'Discover real travel stories, share tips, and get inspired by journeys worldwide. Join a thriving community of explorers.',
     },
   ];
+
+  // ABOUT US SECTION
+  export const ABOUT = [
+    {
+      title: 'Our Mission',
+      icon: '/map.svg',
+      variant: 'green',
+      description:
+        'UTo bring travelers together through stories, ideas, and shared experiences. We’re here to help you plan your perfect trip, discover hidden gems, and connect with a global community that celebrates the spirit of exploration.',
+    },
+    {
+      title: 'Our Vision',
+      icon: '/calendar.svg',
+      variant: 'green',
+      description:
+        "We envision a world where travel inspires people to embrace new cultures, build meaningful connections, and create unforgettable memories. Our platform is designed to be a hub for wanderers—whether you're here to find inspiration, share your journey, or connect with like-minded explorers.",
+    },
+    {
+      title: 'Expert Travel Guides',
+      icon: '/tech.svg',
+      variant: 'green',
+      description:
+        'Dive into comprehensive guides, travel tips, and detailed reviews that help you navigate new places like a local.',
+    },
+    {
+      title: 'Community Stories',
+      icon: '/location.svg',
+      variant: 'orange',
+      description:
+        'Discover real travel stories, share tips, and get inspired by journeys worldwide. Join a thriving community of explorers.',
+    },
+  ]
   
   // FOOTER SECTION
   export const FOOTER_LINKS = [

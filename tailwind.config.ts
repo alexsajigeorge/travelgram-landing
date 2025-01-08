@@ -35,6 +35,7 @@ module.exports = {
         'feature-bg': "url('/feature-bg.png')",
         pattern: "url('/pattern.png')",
         'pattern-2': "url('/pattern-bg.png')",
+        'pattern-3': "url('/kayaking.jpg')",
       },
       screens: {
         xs: '400px',
