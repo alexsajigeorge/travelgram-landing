@@ -1,8 +1,8 @@
 // NAVIGATION
 export const NAV_LINKS = [
     // { href: '/', key: 'home', label: 'Home' },
-    { href: '/', key: 'how_travelgram_work', label: 'How Travelgram Work?' },
-    { href: '/', key: 'contact_us', label: 'Contact Us' },
+    { href: '/', key: 'start_journaling', label: 'Start Journaling' },
+    // { href: '/', key: 'contact_us', label: 'Contact Us' },
     // { href: '/', key: 'services', label: 'Services' },
     // { href: '/', key: 'pricing ', label: 'Pricing ' },
   ];
@@ -18,32 +18,32 @@ export const NAV_LINKS = [
   // FEATURES SECTION
   export const FEATURES = [
     {
-      title: 'Real maps can be offline',
+      title: 'Discover Hidden Gems',
       icon: '/map.svg',
       variant: 'green',
       description:
-        'We provide a solution for you to be able to use our application when climbing, yes offline maps you can use at any time there is no signal at the location',
+        'Unearth unique travel spots, local secrets, and experiences that guidebooks miss, ensuring your next adventure is truly unforgettable.',
     },
     {
-      title: 'Set an adventure schedule',
+      title: 'Write Your Experience',
       icon: '/calendar.svg',
       variant: 'green',
       description:
-        "Schedule an adventure with friends. On holidays, there are many interesting offers from Travelgram. That way, there's no more discussion",
+        "Whether it’s an adventure, a relaxing retreat, or a cultural exploration, contribute your journey and inspire fellow travelers with your experiences.",
     },
     {
-      title: 'Technology using augment reality',
+      title: 'Expert Travel Guides',
       icon: '/tech.svg',
       variant: 'green',
       description:
-        'Technology uses augmented reality as a guide to your hiking trail in the forest to the top of the mountain. Already supported by the latest technology without an internet connection',
+        'Dive into comprehensive guides, travel tips, and detailed reviews that help you navigate new places like a local.',
     },
     {
-      title: 'Many new locations every month',
+      title: 'Community Stories',
       icon: '/location.svg',
       variant: 'orange',
       description:
-        'Lots of new locations every month, because we have a worldwide community of climbers who share their best experiences with climbing',
+        'Discover real travel stories, share tips, and get inspired by journeys worldwide. Join a thriving community of explorers.',
     },
   ];
   
@@ -53,11 +53,8 @@ export const NAV_LINKS = [
       title: 'Learn More',
       links: [
         'About Travelgram',
-        'Press Releases',
-        'Environment',
-        'Jobs',
+        'Terms & Conditions',
         'Privacy Policy',
-        'Contact Us',
       ],
     },
     {
@@ -69,8 +66,8 @@ export const NAV_LINKS = [
   export const FOOTER_CONTACT_INFO = {
     title: 'Contact Us',
     links: [
-      { label: 'Admin Officer', value: '123-456-7890' },
-      { label: 'Email Officer', value: 'info@travelgram.com' },
+      { label: 'For Enquiries', value: 'info@travelgram.com' },
+      { label: 'Support Team', value: 'support@travelgram.com' },
     ],
   };
   

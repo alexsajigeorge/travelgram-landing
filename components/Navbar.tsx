@@ -35,9 +35,10 @@ const Navbar = () => {
       <ul className="hidden h-full gap-12 lg:flex">
         {NAV_LINKS.map((link) => (
           <Link
-            className="regular-16 text-gray-50 flexCenter cursor-pointer pb-1.5 transition-all hover:font-bold"
+            className="regular-16 text-gray-50 border px-8 py-4 cursor-pointer rounded-full transition-all hover:bg-[#30af5b] hover:text-white"
             href={link.href}
             key={link.key}
+            
           >
             {link.label}
           </Link>

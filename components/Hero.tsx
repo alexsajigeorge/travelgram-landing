@@ -14,14 +14,16 @@ const Hero = () => {
           height={50}
           className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
         /> */}
-        <h1 className="bold-52 lg:bold-88">Travelgram Explorer Hub</h1>
+        <h1 className="bold-52 lg:bold-88">
+          Discover the World Like Never Before
+        </h1>
         <p className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]">
           Embark on a journey to uncover the world’s hidden treasures, from
           secluded beaches and charming villages to awe-inspiring natural
           wonders and iconic landmarks.
         </p>
 
-        <div className="my-11 flex flex-wrap gap-5">
+        {/* <div className="my-11 flex flex-wrap gap-5">
           <div className="flex items-center gap-2">
             {Array(5)
               .fill(1)
@@ -42,10 +44,10 @@ const Hero = () => {
               Excellent Reviews
             </span>
           </p>
-        </div>
+        </div> */}
 
-        <div className="flex flex-col w-full gap-3 sm:flex-row">
-          <Button type="button" title="Explore Now" variant="btn_green" />
+        <div className="flex my-11 flex-col w-full gap-3 sm:flex-row">
+          <Button type="button" title="Explore Journals" variant="btn_green" />
           <Button
             type="button"
             title="How we work?"
