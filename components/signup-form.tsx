@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { login, signup } from "@/app/login/actions"
-import Link from "next/link"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { login, signup } from "@/app/login/actions";
+import Link from "next/link";
 
 export function SignUpForm({
   className,
@@ -18,7 +18,16 @@ export function SignUpForm({
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Sign Up</h1>
-                
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="email">Name</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="Joe Doe"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -33,7 +42,6 @@ export function SignUpForm({
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                 
                 </div>
                 <Input id="password" name="password" type="password" required />
               </div>
@@ -82,13 +90,13 @@ export function SignUpForm({
               </div>
             </div>
           </form>
-          
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
-        By clicking continue, you agree to our <Link href="#">Terms of Service</Link>{" "}
-        and <Link href="#">Privacy Policy</Link>.
+        By clicking continue, you agree to our{" "}
+        <Link href="#">Terms of Service</Link> and{" "}
+        <Link href="#">Privacy Policy</Link>.
       </div>
     </div>
-  )
+  );
 }

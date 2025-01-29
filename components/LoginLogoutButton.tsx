@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import React, { Suspense, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/utils/supabase/client";
 import { signout } from "@/lib/auth";
+import Button from "./Button";
 
 const LoginButton = () => {
   const [user, setUser] = useState<any>(null);
@@ -18,9 +18,14 @@ const LoginButton = () => {
     };
     fetchUser();
   }, []);
+
   if (user) {
     return (
       <Button
+        type="submit"
+        title="Logout"
+        icon="/user.svg"
+        variant="btn_dark_green"
         onClick={() => {
           signout();
           setUser(null);
@@ -32,7 +37,10 @@ const LoginButton = () => {
   }
   return (
     <Button
-      variant="outline"
+      type="submit"
+      title="Login"
+      icon="/user.svg"
+      variant="btn_dark_green"
       onClick={() => {
         router.push("/login");
       }}
