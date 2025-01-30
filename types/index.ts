@@ -8,6 +8,7 @@ export type ButtonProps = {
   full?: boolean;
   children?: React.ReactNode;
   onClick?: () => void;
+  formAction?: () => void;
 }
 
 export interface CampProps {

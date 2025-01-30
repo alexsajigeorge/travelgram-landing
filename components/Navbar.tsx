@@ -7,6 +7,8 @@ import { supabase } from "@/lib/supabase";
 import Login from "./Login";
 import LoginButton from "./LoginLogoutButton";
 import Profile from "./Profile";
+import { GoogleAuth } from "./GoogleAuth";
+
 
 const Navbar = async () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,8 +30,7 @@ const Navbar = async () => {
       </Link>
 
       <div className="flex items-center gap-5">
-        <LoginButton />
-        <Profile />
+        <GoogleAuth />
         {/* {session && session?.user ? (
           <>
             <ul className="hidden h-full gap-12 lg:flex">
