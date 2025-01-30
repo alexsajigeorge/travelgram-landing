@@ -1,19 +1,10 @@
-import { NAV_LINKS } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./Button";
-import MobileMenu from "./ui/mobile-menu";
-import { supabase } from "@/lib/supabase";
-import Login from "./Login";
-import LoginButton from "./LoginLogoutButton";
-import Profile from "./Profile";
 import { GoogleAuth } from "./GoogleAuth";
-
 
 const Navbar = async () => {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const session = await auth();
-
   // const toggleMenu = () => {
   //   setIsMenuOpen(!isMenuOpen);
   // };

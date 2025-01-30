@@ -25,7 +25,6 @@ export async function login(formData: FormData) {
   redirect("/");
 }
 
-
 export async function signup(formData: FormData) {
   const supabase = await createClient();
 
@@ -57,8 +56,8 @@ export const googleauth = async () => {
     provider: "google",
     options: {
       queryParams: {
-        access_type: 'offline',
-        prompt: 'consent',
+        access_type: "offline",
+        prompt: "consent",
       },
     },
   });
@@ -72,3 +71,14 @@ export const googleauth = async () => {
   revalidatePath("/", "layout");
   redirect("/");
 };
+
+export async function logout() {
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    console.log(error);
+    redirect("/error");
+  }
+
+  redirect("/");
+}
