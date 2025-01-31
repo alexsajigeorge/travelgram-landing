@@ -11,19 +11,12 @@ const Button = ({
   full,
   children,
   onClick,
-  formAction,
 }: ButtonProps) => {
   const handleClick = () => {
     if (onClick) {
       onClick();
     }
   };
-  const formSubmit = () => {
-    if (formAction) {
-      formAction();
-    }
-  };
-
   return (
     <button
       className={`flexCenter gap-3 rounded-full border ${variant} ${
@@ -31,7 +24,6 @@ const Button = ({
       }`}
       type={type}
       onClick={handleClick}
-      formAction={formSubmit}
     >
       {icon && <Image src={icon} alt={title} width={24} height={24} />}
       <label className="bold-16 whitespace-nowrap cursor-pointer">

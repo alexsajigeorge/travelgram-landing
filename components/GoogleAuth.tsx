@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from "react";
-import { googleauth } from "@/app/(auth)/login/actions";
+import { googleauth } from "@/actions/auth";
 
 export async function GoogleAuth() {
   const [loading, setLoading] = useState(false);

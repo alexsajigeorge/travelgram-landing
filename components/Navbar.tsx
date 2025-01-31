@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GoogleAuth } from "./GoogleAuth";
 import { createClient } from "@/utils/supabase/server";
 import Logout from "./Logout";
 
@@ -20,10 +19,13 @@ const Navbar = async () => {
       </Link>
 
       <div className="flex items-center gap-5">
-        {!user ? (
-          <GoogleAuth />
+        {!user?.user ? (
+          <Link href="/login" className="btn_dark_green">
+            Login
+          </Link>
         ) : (
           <>
+            {user?.user?.email}
             <Logout />
           </>
         )}
