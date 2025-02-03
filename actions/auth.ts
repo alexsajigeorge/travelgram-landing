@@ -37,7 +37,6 @@ export async function signUp(formData: FormData) {
     staus: "success",
     user: data?.user,
   };
-  
 }
 
 export async function singIn(formData: FormData) {
@@ -61,6 +60,25 @@ export async function singIn(formData: FormData) {
   }
 
   // create user instance in db
+  const { data: existingUser } = await supabase
+    .from("profile")
+    .select("*")
+    .eq("email", credentials.email)
+    .limit(1)
+    .single();
+
+    if (!existingUser) {
+      const {error: insertError} = await supabase.from("profile").insert({
+        email: data?.user?.email,
+        full_name: data?.user?.user_metadata?.full_name,
+      });
+      if (insertError) {
+        return{
+          status: insertError?.message,
+          User: null,
+        }
+      }
+    }
 
   revalidatePath("/", "layout");
   return {
