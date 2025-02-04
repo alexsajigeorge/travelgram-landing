@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import Logout from "./Logout";
+import GetUser from "./GetUser";
 
 const Navbar = async () => {
   const supabase = await createClient();
@@ -25,7 +26,7 @@ const Navbar = async () => {
           </Link>
         ) : (
           <>
-            {user?.user?.email}
+            <GetUser />
             <Logout />
           </>
         )}

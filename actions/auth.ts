@@ -5,6 +5,17 @@ import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
 
+export async function getUserSession() {
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error) {
+    return null;
+  }
+  return {
+    status: "success",
+    user: data?.user,
+  };
+}
 export async function signUp(formData: FormData) {
   const supabase = await createClient();
 
@@ -67,18 +78,18 @@ export async function singIn(formData: FormData) {
     .limit(1)
     .single();
 
-    if (!existingUser) {
-      const {error: insertError} = await supabase.from("profile").insert({
-        email: data?.user?.email,
-        full_name: data?.user?.user_metadata?.full_name,
-      });
-      if (insertError) {
-        return{
-          status: insertError?.message,
-          User: null,
-        }
-      }
+  if (!existingUser) {
+    const { error: insertError } = await supabase.from("profile").insert({
+      email: data?.user?.email,
+      full_name: data?.user?.user_metadata?.full_name,
+    });
+    if (insertError) {
+      return {
+        status: insertError?.message,
+        User: null,
+      };
     }
+  }
 
   revalidatePath("/", "layout");
   return {
