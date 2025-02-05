@@ -1,20 +1,20 @@
-'use client';
-import React, { useState } from "react";
+"use client";
+import React, { useTransition } from "react";
 import { googleauth } from "@/actions/auth";
 
-export async function GoogleAuth() {
-  const [loading, setLoading] = useState(false);
-  const handleLogin = async (event: React.FormEvent) =>{
-    event.preventDefault();
-    setLoading(true);
-    await googleauth();
-    setLoading(false);
-  }
+export function GoogleAuth() {
+  const [isPending, startTransition] = useTransition();
+  const handleGoogleAuth = () => {
+    startTransition(async () => {
+      await googleauth();
+    });
+  };
   return (
-    <form onSubmit={handleLogin}>
-      <button type="submit" className="btn_dark_green">
-        {loading ? "Logging in..." : "Login"}
-      </button>
-    </form>
+    <div
+      onClick={handleGoogleAuth}
+      className="border rounded-lg p-2 flex justify-center w-full"
+    >
+      <p> {isPending ? "Redirecting..." : "Login with google"}</p>
+    </div>
   );
 }

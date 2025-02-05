@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
+import { headers } from "next/headers";
 
 export async function getUserSession() {
   const supabase = await createClient();
@@ -111,14 +112,16 @@ export async function signOut() {
 }
 
 export const googleauth = async () => {
+  const origin = (await headers()).get("origin");
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
       queryParams: {
-        access_type: "offline",
-        prompt: "consent",
+        access_type: 'offline',
+        prompt: 'consent',
       },
+      redirectTo: `${origin}/auth/callback`,
     },
   });
 
@@ -127,7 +130,7 @@ export const googleauth = async () => {
   }
   if (error) {
     redirect("/error");
+  } else if (data.url) {
+    return redirect(data.url);
   }
-  revalidatePath("/", "layout");
-  redirect("/");
 };
