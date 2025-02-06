@@ -4,16 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import { forgotPassword, resetPassword, singIn } from "@/actions/auth";
+import { resetPassword } from "@/actions/auth";
 
-export default function ResetPassword({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export default function ResetPassword() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>();
   const [loading, setLoading] = useState<boolean>(false);
@@ -37,13 +32,7 @@ export default function ResetPassword({
     setLoading(false);
   };
   return (
-    <div
-      className={cn(
-        "flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10",
-        className
-      )}
-      {...props}
-    >
+    <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-1">
           <form onSubmit={handleSubmit} className="p-6 md:p-8">
