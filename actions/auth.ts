@@ -118,8 +118,8 @@ export const googleauth = async () => {
     provider: "google",
     options: {
       queryParams: {
-        access_type: 'offline',
-        prompt: 'consent',
+        access_type: "offline",
+        prompt: "consent",
       },
       redirectTo: `${origin}/auth/callback`,
     },
@@ -133,4 +133,43 @@ export const googleauth = async () => {
   } else if (data.url) {
     return redirect(data.url);
   }
+};
+
+export const forgotPassword = async (formData: FormData) => {
+  const supabase = await createClient();
+  const origin = (await headers()).get("origin");
+
+  const { error } = await supabase.auth.resetPasswordForEmail(
+    formData.get("email") as string,
+    {
+      redirectTo: `${origin}/reset-password`,
+    }
+  );
+  if (error) {
+    return {
+      status: error?.message,
+      user: null,
+    };
+  }
+  return {
+    status: "success",
+  };
+};
+
+export const resetPassword = async (formData: FormData, code: string) => {
+  const supabase = await createClient();
+  const { error: CodeError } = await supabase.auth.exchangeCodeForSession(code);
+
+  if (CodeError) {
+    return {
+      status: CodeError?.message,
+    };
+  }
+  const { error } = await supabase.auth.updateUser({
+    password: formData.get("password") as string,
+  });
+  if (error) {
+    return { status: error?.message };
+  }
+  return { status: "success" };
 };
