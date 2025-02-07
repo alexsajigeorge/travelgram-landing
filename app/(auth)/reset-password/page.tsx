@@ -7,12 +7,14 @@ import { Label } from "@/components/ui/label";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { resetPassword } from "@/actions/auth";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ResetPassword() {
   const searchParams = useSearchParams();
   const [error, setError] = useState<string | null>();
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,6 +27,10 @@ export default function ResetPassword() {
     );
 
     if (result.status === "success") {
+      toast({
+        title: "Success",
+        description: "Password has been reset successfully",
+      });
       router.push("/");
     } else {
       setError(result.status);

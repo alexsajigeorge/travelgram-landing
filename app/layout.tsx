@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Travelgram - Landing",
@@ -16,11 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <body>
-          <Navbar />
-          <main className="relative overflow-hidden">{children}</main>
-          <Footer />
-        </body>
+      <body>
+        <Navbar />
+        <main className="relative overflow-hidden">{children}</main>
+        <Toaster />
+        <Footer />
+      </body>
     </html>
   );
 }

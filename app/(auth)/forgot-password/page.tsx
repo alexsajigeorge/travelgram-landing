@@ -9,14 +9,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { forgotPassword, singIn } from "@/actions/auth";
+import { useToast } from "@/hooks/use-toast";
 
-export default function ForgotPassword({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export default function ForgotPassword() {
   const [error, setError] = useState<string | null>();
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+  const { toast } = useToast();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -26,20 +25,18 @@ export default function ForgotPassword({
     const result = await forgotPassword(formData);
 
     if (result.status === "success") {
-      alert("Password reset link sent to your email");
+      toast({
+        title: "Success",
+        description: "Password reset link sent to your email",
+      });
+      router.push("/");
     } else {
       setError(result.status);
     }
     setLoading(false);
   };
   return (
-    <div
-      className={cn(
-        "flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10",
-        className
-      )}
-      {...props}
-    >
+    <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-1">
           <form onSubmit={handleSubmit} className="p-6 md:p-8">

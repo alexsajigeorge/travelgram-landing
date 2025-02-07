@@ -27,6 +27,9 @@ const Navbar = async () => {
         ) : (
           <>
             <GetUser />
+            <Link className="rounded-full border p-4" href="/create">
+              Start Journaling
+            </Link>
             <Logout />
           </>
         )}
